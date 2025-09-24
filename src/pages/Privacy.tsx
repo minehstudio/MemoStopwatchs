@@ -18,7 +18,7 @@ const content = {
         content: '본 정책은 필요에 따라 변경될 수 있으며, 변경 시 본 페이지를 통해 공지합니다.'
       }
     ],
-    contact: '문의: privacy@memostopwatch.com',
+    contact: '문의: mineh.studio@gmail.com',
     lastUpdated: '최종 업데이트: 2025년 9월',
     metaTitle: 'Privacy Policy | MemoStopwatch - 개인정보처리방침',
     metaDescription: 'MemoStopwatch 서비스의 개인정보처리방침 및 데이터 보호 정책'
@@ -39,7 +39,7 @@ const content = {
         content: 'This policy may change and updates will be posted on this page.'
       }
     ],
-    contact: 'Contact: privacy@memostopwatch.com',
+    contact: 'Contact: mineh.studio@gmail.com',
     lastUpdated: 'Last Updated: September 2025',
     metaTitle: 'Privacy Policy | MemoStopwatch',
     metaDescription: 'Privacy policy and data protection for MemoStopwatch service'
