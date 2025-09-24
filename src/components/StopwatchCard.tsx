@@ -88,59 +88,57 @@ export default function StopwatchCard({ stopwatch, onUpdate, onDelete }: Stopwat
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-4 shadow-sm">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-3">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-          <div className="font-mono text-xl sm:text-2xl font-medium text-center sm:text-left">
-            {formatTime(stopwatch.time)}
-          </div>
-          <div className="flex gap-2 justify-center sm:justify-start">
-            <Button
-              size="default"
-              variant="outline"
-              onClick={stopwatch.isRunning ? handlePause : handleStart}
-              className="w-12 h-12 sm:w-10 sm:h-10 p-0 rounded-lg touch-manipulation"
-            >
-              {stopwatch.isRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-            </Button>
-            <Button
-              size="default"
-              variant="outline"
-              onClick={handleStop}
-              className="w-12 h-12 sm:w-10 sm:h-10 p-0 rounded-lg touch-manipulation"
-            >
-              <Square className="w-4 h-4" />
-            </Button>
-            <Button
-              size="default"
-              variant="outline"
-              onClick={handleReset}
-              className="w-12 h-12 sm:w-10 sm:h-10 p-0 rounded-lg touch-manipulation"
-            >
-              <RotateCcw className="w-4 h-4" />
-            </Button>
-          </div>
+    <div className="bg-card border border-border rounded-lg px-3 py-2 shadow-sm">
+      <div className="flex items-center justify-between mb-1.5">
+        <div className="font-mono text-lg sm:text-xl font-medium">
+          {formatTime(stopwatch.time)}
         </div>
-        <Button
-          size="default"
-          variant="ghost"
-          onClick={() => onDelete(stopwatch.id)}
-          className="w-10 h-10 sm:w-8 sm:h-8 p-0 text-muted-foreground hover:text-destructive rounded-lg touch-manipulation flex-shrink-0"
-        >
-          <X className="w-4 h-4" />
-        </Button>
+        <div className="flex gap-1">
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={stopwatch.isRunning ? handlePause : handleStart}
+            className="w-8 h-8 p-0 rounded touch-manipulation"
+          >
+            {stopwatch.isRunning ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={handleStop}
+            className="w-8 h-8 p-0 rounded touch-manipulation"
+          >
+            <Square className="w-3 h-3" />
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={handleReset}
+            className="w-8 h-8 p-0 rounded touch-manipulation"
+          >
+            <RotateCcw className="w-3 h-3" />
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => onDelete(stopwatch.id)}
+            className="w-8 h-8 p-0 text-muted-foreground hover:text-destructive rounded touch-manipulation"
+          >
+            <X className="w-3 h-3" />
+          </Button>
+        </div>
       </div>
-      
-      <div className="space-y-2">
+
+      <div className="space-y-1">
         <Input
           placeholder="Memo (max 30 characters)"
           value={memo}
           onChange={handleMemoChange}
           maxLength={30}
-          className="text-sm border-border"
+          className="text-sm border-border h-8"
         />
         <div className="flex justify-between items-center text-xs">
-          <span className="text-muted-foreground bg-muted px-2 py-1 rounded-md">
+          <span className="text-muted-foreground px-1">
             {memo.length}/30
           </span>
           {stopwatch.lastModified && (
