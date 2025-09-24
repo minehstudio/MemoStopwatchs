@@ -38,15 +38,15 @@ export default function AdBanner({ size, className = '' }: AdBannerProps) {
   const adContent = getAdContent();
 
   return (
-    <div 
-      className={`bg-muted border border-border rounded-xl flex items-center justify-center text-muted-foreground text-sm ${className}`}
+    <div
+      className={`bg-muted border border-border rounded-xl flex items-center justify-center ${className}`}
       style={{
         width: adContent.width,
         height: adContent.height,
         maxWidth: '100%'
       }}
     >
-      {adContent.text}
+      {/* Ad content will be inserted here */}
     </div>
   );
 }
