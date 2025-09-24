@@ -119,24 +119,97 @@ npm run build  # build/ 폴더 생성
 3. **Framework Preset**: Vite 설정 필요
 4. 자동 배포 완료
 
-## 예정 작업
+## 완료된 작업 ✅
 
-### 1. 도메인 설정
-- **도메인**: memostopwatch.org (GoDaddy 구매 예정)
-- **Vercel 연결** 후 DNS 설정
-- **HTTPS** 자동 적용
+### 1. SEO 최적화 (2025-09-24)
+- **도메인 설정**: memostopwatch.com 구매 완료
+- **메타태그 URL 업데이트**: 모든 og:url, og:image를 새 도메인으로 변경
+- **Canonical URL 추가**: 중복 콘텐츠 방지를 위한 canonical 태그 추가
+- **구조화된 데이터**: WebApplication Schema.org 마크업 추가
+- **robots.txt 생성**: 검색엔진 크롤링 허용 설정
+- **sitemap.xml 생성**: Google 검색 인덱싱용 사이트맵
 
-### 2. Google AdSense 연동
-- **개인정보처리방침** 페이지 추가 필요
-- AdBanner.tsx 컴포넌트에 실제 광고 코드 적용
-- 승인 후 수익화 시작
+## 다음 단계 (To-Do)
 
-### 3. 기능 개선 아이디어
-- 사운드 알림 기능
-- 다크 모드 지원
-- 스탑워치 그룹핑
-- CSV 내보내기
-- PWA (앱 설치) 지원
+### 1. 검색엔진 등록 ⚡ 우선순위: 높음
+- [ ] **Google Search Console 등록**
+  - https://search.google.com/search-console 접속
+  - 도메인 소유권 인증 (DNS TXT 레코드 추가)
+  - sitemap.xml 제출
+  - 인덱싱 요청
+- [ ] **네이버 서치어드바이저 등록**
+  - https://searchadvisor.naver.com 접속
+  - 사이트 등록 및 소유권 확인
+  - 사이트맵 제출
+- [ ] **Google Analytics 설치**
+  - GA4 계정 생성
+  - 추적 코드 index.html에 추가
+  - 목표 설정 (체류시간, 타이머 사용 횟수 등)
+
+### 2. 배포 설정 ⚡ 우선순위: 높음
+- [ ] **Vercel 도메인 연결**
+  - Vercel 대시보드에서 Custom Domain 추가
+  - DNS 설정 (A 레코드 또는 CNAME)
+  - SSL 인증서 자동 발급 확인
+- [ ] **빌드 & 배포**
+  - `npm run build` 로컬 테스트
+  - GitHub 푸시 → Vercel 자동 배포
+  - 배포 후 실제 도메인에서 확인
+
+### 3. 수익화 준비 ⚡ 우선순위: 중간
+- [ ] **개인정보처리방침 페이지 작성**
+  - /privacy 라우트 추가
+  - 광고, 쿠키, 분석 도구 사용 명시
+  - footer에 링크 추가
+- [ ] **Google AdSense 신청**
+  - AdSense 계정 생성
+  - 사이트 심사 요청
+  - 승인 후 광고 코드 삽입
+- [ ] **광고 위치 최적화**
+  - AdBanner.tsx에 실제 광고 코드 적용
+  - 모바일/데스크톱 반응형 광고 설정
+
+### 4. 마케팅 & 홍보 ⚡ 우선순위: 중간
+- [ ] **SNS 공유 최적화**
+  - og:image 실제 이미지 제작 (1200x630)
+  - 카카오톡, 페이스북 공유 테스트
+- [ ] **커뮤니티 홍보**
+  - 생산성 관련 커뮤니티 (클리앙, 뽐뿌 등)
+  - 운동/요리 커뮤니티
+  - 개발자 커뮤니티 (Show HN 등)
+- [ ] **블로그 포스팅**
+  - 사용 가이드 작성
+  - SEO 키워드 타겟팅
+
+### 5. 기능 개선 (장기) ⚡ 우선순위: 낮음
+- [ ] **PWA 지원**: 앱처럼 설치 가능하게
+- [ ] **다크 모드**: 시스템 설정 연동
+- [ ] **사운드 알림**: 타이머 종료 시 알림음
+- [ ] **데이터 내보내기**: CSV, JSON 형식
+- [ ] **클라우드 동기화**: 로그인 기능 추가
+
+## 빠른 참고 명령어
+
+```bash
+# 로컬 개발
+cd 01_memostopwatch
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+
+# Git 커밋 & 푸시
+git add .
+git commit -m "SEO optimization and domain update"
+git push origin main
+```
+
+## 중요 링크
+- **실제 도메인**: https://memostopwatch.com
+- **GitHub**: https://github.com/minehstudio/MemoStopwatchs
+- **Vercel Dashboard**: https://vercel.com/dashboard
+- **Google Search Console**: https://search.google.com/search-console
+- **Google Analytics**: https://analytics.google.com
 
 ## 기술적 고려사항
 
