@@ -72,7 +72,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-4 py-6">
+      <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
         {/* 상단 바 */}
         <header className="mb-6">
           <div className="flex flex-col gap-4 mb-4">
@@ -85,36 +85,41 @@ export default function App() {
           </div>
           
           {/* 상단 광고 */}
-          <div className="xl:flex xl:justify-start flex justify-center">
-            <AdBanner size="top" className="hidden md:block" />
-            <AdBanner size="card" className="md:hidden" />
+          <div className="flex justify-center">
+            <div className="w-full max-w-[728px]">
+              <AdBanner size="top" className="hidden md:block" />
+              <AdBanner size="card" className="md:hidden" />
+            </div>
           </div>
         </header>
 
-        <div className="grid grid-cols-[728px_160px] gap-6 xl:grid-cols-[728px_160px] lg:grid-cols-[1fr] lg:gap-0">
+        <div className="w-full">
           {/* 메인 콘텐츠 */}
           <main className="w-full">
             {/* 버튼 영역 */}
-            <div className="flex gap-2 justify-start mb-6 xl:max-w-none max-w-[728px] mx-auto xl:mx-0">
-              <Button
-                onClick={addStopwatch}
-                disabled={stopwatches.length >= MAX_STOPWATCHES}
-                size="sm"
-                className="flex items-center gap-2"
-                title={stopwatches.length >= MAX_STOPWATCHES ? "Maximum 5 stopwatches" : "Add new stopwatch"}
-              >
-                <Plus className="w-4 h-4" />
-                New Stopwatch
-              </Button>
-              {stopwatches.length > 0 && (
+            <div className="flex justify-center mb-6 px-4">
+              <div className="w-full max-w-[728px] flex gap-2 justify-start">
                 <Button
-                  onClick={clearAllData}
-                  variant="outline"
-                  size="sm"
+                  onClick={addStopwatch}
+                  disabled={stopwatches.length >= MAX_STOPWATCHES}
+                  size="default"
+                  className="flex items-center gap-2 min-h-[44px] px-4"
+                  title={stopwatches.length >= MAX_STOPWATCHES ? "Maximum 5 stopwatches" : "Add new stopwatch"}
                 >
-                  Clear All
+                  <Plus className="w-4 h-4" />
+                  New Stopwatch
                 </Button>
-              )}
+                {stopwatches.length > 0 && (
+                  <Button
+                    onClick={clearAllData}
+                    variant="outline"
+                    size="default"
+                    className="min-h-[44px] px-4"
+                  >
+                    Clear All
+                  </Button>
+                )}
+              </div>
             </div>
 
             {stopwatches.length === 0 ? (
@@ -123,19 +128,14 @@ export default function App() {
                   <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-full flex items-center justify-center">
                     <Play className="w-8 h-8 text-muted-foreground" />
                   </div>
-                  <p className="text-muted-foreground mb-2">Click + button to add a stopwatch</p>
                   <p className="text-sm text-muted-foreground">Manage up to 5 stopwatches simultaneously</p>
                 </div>
-                <Button onClick={addStopwatch} className="flex items-center gap-2 mx-auto">
-                  <Plus className="w-4 h-4" />
-                  Add Your First Stopwatch
-                </Button>
               </div>
             ) : (
-              <div className="space-y-6 xl:flex xl:flex-col xl:items-start flex flex-col items-center">
+              <div className="space-y-6 flex flex-col items-center px-4">
                 {stopwatches.map((stopwatch, index) => (
                   <React.Fragment key={stopwatch.id}>
-                    <div className="w-full xl:max-w-none max-w-[728px]">
+                    <div className="w-full max-w-[728px]">
                       <StopwatchCard
                         stopwatch={stopwatch}
                         onUpdate={updateStopwatch}
@@ -144,30 +144,27 @@ export default function App() {
                     </div>
                     {/* 카드 간 광고 (2번째와 4번째 카드 뒤) */}
                     {(index === 1 || index === 3) && (
-                      <div className="xl:flex xl:justify-start flex justify-center">
+                      <div className="w-full max-w-[728px]">
                         <AdBanner size="top" className="hidden md:block" />
                         <AdBanner size="card" className="md:hidden" />
                       </div>
                     )}
                   </React.Fragment>
                 ))}
-                
+
 
               </div>
             )}
           </main>
-
-          {/* 사이드 광고 (데스크톱만) */}
-          <aside className="xl:block lg:hidden ml-6">
-            <AdBanner size="side" />
-          </aside>
         </div>
 
         {/* 하단 광고 */}
         <footer className="mt-12 pt-8 border-t border-border">
-          <div className="xl:flex xl:justify-start flex justify-center mb-6">
-            <AdBanner size="top" className="hidden md:block" />
-            <AdBanner size="card" className="md:hidden" />
+          <div className="flex justify-center mb-6">
+            <div className="w-full max-w-[728px]">
+              <AdBanner size="top" className="hidden md:block" />
+              <AdBanner size="card" className="md:hidden" />
+            </div>
           </div>
           <div className="text-center">
             <p className="text-xs text-muted-foreground">

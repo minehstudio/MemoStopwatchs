@@ -89,43 +89,43 @@ export default function StopwatchCard({ stopwatch, onUpdate, onDelete }: Stopwat
 
   return (
     <div className="bg-card border border-border rounded-xl p-4 shadow-sm">
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-3">
-          <div className="font-mono text-2xl font-medium min-w-[140px]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+          <div className="font-mono text-xl sm:text-2xl font-medium text-center sm:text-left">
             {formatTime(stopwatch.time)}
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-center sm:justify-start">
             <Button
-              size="sm"
+              size="default"
               variant="outline"
               onClick={stopwatch.isRunning ? handlePause : handleStart}
-              className="w-10 h-10 p-0 rounded-lg"
+              className="w-12 h-12 sm:w-10 sm:h-10 p-0 rounded-lg touch-manipulation"
             >
               {stopwatch.isRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             </Button>
             <Button
-              size="sm"
+              size="default"
               variant="outline"
               onClick={handleStop}
-              className="w-10 h-10 p-0 rounded-lg"
+              className="w-12 h-12 sm:w-10 sm:h-10 p-0 rounded-lg touch-manipulation"
             >
               <Square className="w-4 h-4" />
             </Button>
             <Button
-              size="sm"
+              size="default"
               variant="outline"
               onClick={handleReset}
-              className="w-10 h-10 p-0 rounded-lg"
+              className="w-12 h-12 sm:w-10 sm:h-10 p-0 rounded-lg touch-manipulation"
             >
               <RotateCcw className="w-4 h-4" />
             </Button>
           </div>
         </div>
         <Button
-          size="sm"
+          size="default"
           variant="ghost"
           onClick={() => onDelete(stopwatch.id)}
-          className="w-8 h-8 p-0 text-muted-foreground hover:text-destructive rounded-lg"
+          className="w-10 h-10 sm:w-8 sm:h-8 p-0 text-muted-foreground hover:text-destructive rounded-lg touch-manipulation flex-shrink-0"
         >
           <X className="w-4 h-4" />
         </Button>
