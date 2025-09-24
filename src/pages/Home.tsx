@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { Plus, Play } from 'lucide-react';
+import { Plus, Play, BookOpen } from 'lucide-react';
 import StopwatchCard, { Stopwatch } from '../components/StopwatchCard';
 import AdBanner from '../components/AdBanner';
 
@@ -75,20 +76,56 @@ export default function Home() {
       <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
         {/* 상단 바 */}
         <header className="mb-6">
-          <div className="flex flex-col gap-4 mb-4">
-            <div className="text-center">
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                ⏱️ Memo Stopwatch
-              </h1>
-              <p className="text-sm text-muted-foreground mt-1">Multi Timer with Notes</p>
+          <div className="flex justify-center mb-4">
+            <div className="w-full max-w-[728px] relative">
+              <div className="text-left" style={{ marginLeft: '8px', marginTop: '13px' }}>
+                <Link
+                  to="/blog"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    padding: '6px 10px',
+                    background: 'linear-gradient(to right, #8b5cf6, #3b82f6)',
+                    color: 'white',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    borderRadius: '16px',
+                    boxShadow: '0 4px 8px -2px rgba(0, 0, 0, 0.1)',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s',
+                    width: 'fit-content'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.05)';
+                    e.target.style.boxShadow = '0 8px 12px -2px rgba(0, 0, 0, 0.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 4px 8px -2px rgba(0, 0, 0, 0.1)';
+                  }}
+                >
+                  <BookOpen className="w-3 h-3" />
+                  Blog
+                </Link>
+              </div>
+
+              <div className="text-center pt-4">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  ⏱️ Memo Stopwatch
+                </h1>
+                <p className="text-sm text-muted-foreground mt-1">Multi Timer with Notes</p>
+              </div>
             </div>
           </div>
 
           {/* 상단 광고 */}
           <div className="flex justify-center">
             <div className="w-full max-w-[728px]">
-              <AdBanner size="top" className="hidden md:block" />
-              <AdBanner size="card" className="md:hidden" />
+              <div className="text-left" style={{ marginLeft: '8px' }}>
+                <AdBanner size="top" className="hidden md:block" />
+                <AdBanner size="card" className="md:hidden" />
+              </div>
             </div>
           </div>
         </header>
