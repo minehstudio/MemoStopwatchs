@@ -170,23 +170,14 @@ export default function Home() {
               </div>
             ) : (
               <div className="space-y-6 flex flex-col items-center px-4">
-                {stopwatches.map((stopwatch, index) => (
-                  <React.Fragment key={stopwatch.id}>
-                    <div className="w-full max-w-[728px]">
-                      <StopwatchCard
-                        stopwatch={stopwatch}
-                        onUpdate={updateStopwatch}
-                        onDelete={deleteStopwatch}
-                      />
-                    </div>
-                    {/* 카드 간 광고 (2번째와 4번째 카드 뒤) */}
-                    {(index === 1 || index === 3) && (
-                      <div className="w-full max-w-[728px]">
-                        <AdBanner size="top" className="hidden md:block" />
-                        <AdBanner size="card" className="md:hidden" />
-                      </div>
-                    )}
-                  </React.Fragment>
+                {stopwatches.map((stopwatch) => (
+                  <div key={stopwatch.id} className="w-full max-w-[728px]">
+                    <StopwatchCard
+                      stopwatch={stopwatch}
+                      onUpdate={updateStopwatch}
+                      onDelete={deleteStopwatch}
+                    />
+                  </div>
                 ))}
               </div>
             )}
