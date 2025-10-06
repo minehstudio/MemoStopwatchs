@@ -56,8 +56,8 @@ export default function AdBanner({ size, className = '' }: AdBannerProps) {
           format: '',
           style: {
             display: 'inline-block',
-            width: '728px',
-            height: '90px',
+            width: '320px',
+            height: '50px',
             maxWidth: '100%'
           }
         };
